@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import annotation.BeanAnnotation;
 import annotation.ConfigTest;
 import annotation.ScopeTest;
+import aspectTest.Testtest;
 import bean.BeanTest;
 import service.ResourceTest;
 import service.ServiceTestImpl;
@@ -72,6 +73,17 @@ public class Test1 {
 		
 		ScopeTest scopeTest = (ScopeTest) context.getBean("scopeTest");
 		scopeTest.test();
+		
+		context.destroy();
+	}
+	
+	@Test
+	public void test5() {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:xml/spring-beans.xml");
+		context.start();
+		
+		Testtest tt = (Testtest) context.getBean("testtest");
+		tt.test();
 		
 		context.destroy();
 	}
