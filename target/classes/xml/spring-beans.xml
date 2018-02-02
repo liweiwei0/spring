@@ -13,6 +13,8 @@
 
 	<bean id="qiemian" class="aspectTest.Qiemian"></bean>
 	<bean name="testtest" class="aspectTest.Testtest"></bean>
+	<bean id="studentImpl" class="aspectTest.StudentImpl" ></bean>
+	<bean name="lww" class="aspectTest.Lww" ></bean>
   
   	<aop:config>
   		<aop:pointcut id="qiedian" expression="execution(* aspectTest.Testtest.*(..))"/>
@@ -22,6 +24,7 @@
   			<aop:after-returning method="returning" pointcut-ref="qiedian"/>
   			<aop:after-throwing method="throwing" pointcut-ref="qiedian"/>
   			<aop:around method="around" pointcut-ref="qiedian"/>
+  			<aop:declare-parents types-matching="aspectTest.Lww" implement-interface="aspectTest.Students" delegate-ref="studentImpl"/>
   		</aop:aspect>
   	</aop:config>
 </beans>

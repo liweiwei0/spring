@@ -1,5 +1,7 @@
 package aspectTest;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+
 public class Qiemian {
 
 	public void after() {
@@ -18,7 +20,10 @@ public class Qiemian {
 		System.out.println("Qiemian throwing");
 	}
 	
-	public void around() {
-		System.out.println("Qiemian around");
+	public Object around(ProceedingJoinPoint pjp) throws Throwable {
+		System.out.println("Qiemian around 1");
+		Object obj = pjp.proceed();
+		System.out.println("Qiemian around 2");
+		return obj;
 	}
 }
