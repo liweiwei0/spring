@@ -8,6 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import annotation.BeanAnnotation;
 import annotation.ConfigTest;
 import annotation.ScopeTest;
+import aspectTest.Lww;
+import aspectTest.Students;
 import aspectTest.Testtest;
 import bean.BeanTest;
 import service.ResourceTest;
@@ -82,8 +84,8 @@ public class Test1 {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:xml/spring-beans.xml");
 		context.start();
 		
-		Testtest tt = (Testtest) context.getBean("testtest");
-		tt.test();
+		Students lww = (Students) context.getBean("lww");
+		lww.s();
 		
 		context.destroy();
 	}
