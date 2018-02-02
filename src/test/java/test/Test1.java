@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import annotation.AspectTest;
 import annotation.BeanAnnotation;
 import annotation.ConfigTest;
 import annotation.ScopeTest;
@@ -87,6 +88,17 @@ public class Test1 {
 		Students lww = (Students) context.getBean("lww");
 		lww.s();
 		System.out.println("1");
+		context.destroy();
+	}
+	
+	@Test
+	public void test6() {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:xml/spring-annotation-beans.xml");
+		context.start();
+		
+		annotation.Testtest test = (annotation.Testtest) context.getBean("testtest");
+		test.test();
+		
 		context.destroy();
 	}
 }
