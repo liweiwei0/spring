@@ -46,7 +46,7 @@ public class Test1 {
 		BeanAnnotation beanAnnotation = (BeanAnnotation) context.getBean("bean");
 		beanAnnotation.say("123");
 		
-		//²âÊÔ×÷ÓÃÓò
+		//Â²Ã¢ÃŠÃ”Ã—Ã·Ã“ÃƒÃ“Ã²
 		beanAnnotation.has();
 		beanAnnotation = (BeanAnnotation) context.getBean("bean");
 		beanAnnotation.has();
@@ -86,7 +86,7 @@ public class Test1 {
 		
 		Students lww = (Students) context.getBean("lww");
 		lww.s();
-		
+		System.out.println("1");
 		context.destroy();
 	}
 }
