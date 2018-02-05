@@ -87,7 +87,7 @@ public class Test1 {
 		
 		Students lww = (Students) context.getBean("lww");
 		lww.s();
-		System.out.println("1");
+		System.out.println(lww.getClass().getName());
 		context.destroy();
 	}
 	
